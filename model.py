@@ -12,7 +12,7 @@ from keras.callbacks import ModelCheckpoint
 from scipy.misc import imread
 from sklearn.model_selection import train_test_split
 from sklearn.utils import shuffle
-#from keras.utils.visualize_util import plot
+from keras.utils.visualize_util import plot
 from math import e, sqrt, pi
 
 import random
@@ -181,7 +181,7 @@ model.add(Dense(10, activation='relu'))
 model.add(Dense(1))
 
 model.compile('Adam', 'mse', metrics=['mse'])
-#plot(model, to_file='model.png', show_shapes=True, show_layer_names=False)
+plot(model, to_file='model.jpg', show_shapes=True, show_layer_names=False)
 
 # Train model
 print('Validating traing / testing data size ...')

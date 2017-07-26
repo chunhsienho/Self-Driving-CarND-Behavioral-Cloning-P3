@@ -18,13 +18,12 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/center.jpg "Recovery Image"
-[image4]: ./examples/left.jpg "Recovery Image"
-[image5]: ./examples/right.jpg "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image1]: ./examples/model.jpg "Model Visualization"
+[image3]: ./examples/center.jpg "Center Image"
+[image4]: ./examples/left.jpg "Left Image"
+[image5]: ./examples/right.jpg "Right Image"
+[image6]: ./examples/before_flipped.jpg "Before Flipped Normal Image"
+[image7]: ./examples/flipped.jpg "Flipped Image"
 
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -112,11 +111,11 @@ Here is a visualization of the architecture (note: visualizing the architecture 
 
 To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
 
-![alt text][image2]
+![alt text][image3]
 
 I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
 
-![alt text][image3]
+
 ![alt text][image4]
 ![alt text][image5]
 
