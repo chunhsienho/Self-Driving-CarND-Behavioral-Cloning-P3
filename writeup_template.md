@@ -85,23 +85,33 @@ For details about how I created the training data, see the next section.
 
 ####1. Solution Design Approach
 
-The overall strategy for deriving a model architecture was to ...
+The overall strategy for deriving a model architecture was to trail and error to find the best idea.
 
-My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
+My first step was to create a model which is very similar to the NVidia model. To use CPU to train my model. I reduce the model size by using the following steps:
 
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
+1. Add more convolution layer instead of fully connected layer 
 
-To combat the overfitting, I modified the model so that ...
+2. Add some max pooling layer 
 
-Then I ... 
+3. Resize the image by 1/4 by using average pooling layer
 
-The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track... to improve the driving behavior in these cases, I ....
+4. Crop sky, top, and bottom nad some other useless input images
 
-At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
+After setting the model, i start to record the data.
+
+My collecting data is not using the whole running data.
+
+1. I record my driving data both clockwise and counterclockwise to prevent the bias turning left
+
+2. Add recovery data using left/right camera images to teach my model to drive back to the center of the road
+
+3. Collect less straight data and collect more turning data.
+
+After using these data, I find that the vehicle would slight touch the line. I guess this is because of the vehicle speed is so high in drive.py. So I reduce the speed from 30 to 20 and it run smooth and good.
 
 ####2. Final Model Architecture
 
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
+The final model architecture (model.py lines 147-184) looks like the following image.
 
 Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
 
@@ -126,9 +136,8 @@ To augment the data sat, I also flipped images and angles thinking that this wou
 
 
 
-After the collection process, I had X number of data points. I then preprocessed this data by ...
+After the collection process, I had 2352 number of data points. 
 
-
-I finally randomly shuffled the data set and put Y% of the data into a validation set. 
+I finally randomly shuffled the data set and put 20%(588) of the data into a validation set. 
 
 I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 10 since the loss does not decrease much after that. I used an adam optimizer so that manually training the learning rate wasn't necessary.
